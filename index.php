@@ -1,3 +1,3 @@
 <?php
-echo "Hello, world this is my firt Heroku app"
+echo "Hello, world this is my first Heroku app"
 ?>
