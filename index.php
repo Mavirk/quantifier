@@ -1,16 +1,20 @@
-<?php
-$db  = new SQLite3('test.sqlite');
+<html>
+    <header>
+        <title>Quantifier</title>    
+    </header>
+    <body>
 
-//  $input = readline("Enter your name :");
-$outputFromDb = $db->query('SELECT * from users');
-// echo $input;
-$users = array();
-$i = 0;
-while ($res = $outputFromDb->fetchArray(SQLITE3_ASSOC)) {
-    $users[$i]['name'] = $res['name'];
-    $i++;
-}
-for ($j=0; $j < count($users); $j++) { 
-    echo ($users[$j]['name']);
-}
-?>
+    <?php
+      include 'controller_lib.php';
+      $controller = new RegisterController();
+      $controller->register();
+    ?>
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+          Name: <input type="text" name="uname" required><br>
+          E-mail: <input type="text" name="email" required><br>
+          Password: <input type="text" name="password" required><br>
+          Confirm Password: <input type="text" name="password_confirm" required><br>
+          <input type="submit" name = "register" value= "Register">
+      </form>
+    </body>
+</html>
