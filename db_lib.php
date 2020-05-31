@@ -92,6 +92,7 @@
                 Print "doesnt add";
             }
             return $res;
+            
         }
     
         function getFoundations($userId){ 
