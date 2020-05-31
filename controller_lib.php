@@ -37,6 +37,111 @@
             echo "<pre>" . print_r($value, 1) . "</pre>";
         }
     }
+    class PlasterController{
+        public $foundationTable;
+
+        function __construct(){
+            $this->foundationTable = new FoundationTable();
+        }
+
+        function getFoundations($user){
+            try {
+                return $this->foundationTable->getFoundations($user);
+            } catch (Exception $e) {
+                print 'Exception : '.$e->getMessage();
+            }
+        }
+
+        function addFoundation($userid){
+            try {
+                if (isset($_POST['addfoundation'])){
+                    $sitenum = $_POST['sitenum'];
+                    $depth = $_POST['depth'];
+                    $width = $_POST['width'];
+                    $length = $_POST['length'];
+                    $foundation = new Foundation(Null, $userid, $sitenum, $depth, $length, $width);
+                    if ($this->foundationTable->addFoundation($foundation)){
+                        echo "Foundation Record created successfully\n";
+                    }
+                }
+            } catch (PDOException $e) {
+                print 'Exception : '.$e->getMessage();
+            }
+        }
+        function log($value){
+            echo "<pre>" . print_r($value, 1) . "</pre>";
+        }
+    }
+    class ScreedController{
+        public $foundationTable;
+
+        function __construct(){
+            $this->foundationTable = new FoundationTable();
+        }
+
+        function getFoundations($user){
+            try {
+                return $this->foundationTable->getFoundations($user);
+            } catch (Exception $e) {
+                print 'Exception : '.$e->getMessage();
+            }
+        }
+
+        function addFoundation($userid){
+            try {
+                if (isset($_POST['addfoundation'])){
+                    $sitenum = $_POST['sitenum'];
+                    $depth = $_POST['depth'];
+                    $width = $_POST['width'];
+                    $length = $_POST['length'];
+                    $foundation = new Foundation(Null, $userid, $sitenum, $depth, $length, $width);
+                    if ($this->foundationTable->addFoundation($foundation)){
+                        echo "Foundation Record created successfully\n";
+                    }
+                }
+            } catch (PDOException $e) {
+                print 'Exception : '.$e->getMessage();
+            }
+        }
+        function log($value){
+            echo "<pre>" . print_r($value, 1) . "</pre>";
+        }
+    }
+    class ConcreteController{
+        public $foundationTable;
+
+        function __construct(){
+            $this->foundationTable = new FoundationTable();
+        }
+
+        function getFoundations($user){
+            try {
+                return $this->foundationTable->getFoundations($user);
+            } catch (Exception $e) {
+                print 'Exception : '.$e->getMessage();
+            }
+        }
+
+        function addFoundation($userid){
+            try {
+                if (isset($_POST['addfoundation'])){
+                    $sitenum = $_POST['sitenum'];
+                    $depth = $_POST['depth'];
+                    $width = $_POST['width'];
+                    $length = $_POST['length'];
+                    $foundation = new Foundation(Null, $userid, $sitenum, $depth, $length, $width);
+                    if ($this->foundationTable->addFoundation($foundation)){
+                        echo "Foundation Record created successfully\n";
+                    }
+                }
+            } catch (PDOException $e) {
+                print 'Exception : '.$e->getMessage();
+            }
+        }
+        function log($value){
+            echo "<pre>" . print_r($value, 1) . "</pre>";
+        }
+    }
 
     class LoginController{
         public $login_view;
