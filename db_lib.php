@@ -5,7 +5,7 @@
         public $db;
 
         function __construct(){
-            $this->db = new PDO('sqlite:quantifierDB.sqlite');
+            $this->db = new PDO('sqlite:database.sqlite');
             $this->db->exec("CREATE TABLE Users (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Username TEXT NOT NULL, Email TEXT NOT NULL, Password TEXT NOT NULL)");    
         }
         function createTable(){
