@@ -72,10 +72,10 @@
                     <table class="table" align="center" border= "1px" width="100%">
                         <tr align="center">
                             <th>Sitename</th>
-                            <th>Width</th>
-                            <th>Length</th>
-                            <th>Depth</th>
-                            <th>Bags of Cement</th>
+                            <th>Width(m)</th>
+                            <th>Length(m)</th>
+                            <th>Depth(mm)</th>
+                            <th>42,5N (50kg) Bags</th>
                         </tr>
                         <?php
                             $arrayOfFoundations = $homeController->getFoundations($userid);
