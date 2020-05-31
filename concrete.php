@@ -13,8 +13,9 @@
             // include 'model_lib.php';
             session_start();
             if($_SESSION['userid']){
+                $concreteController = new ConcreteController();
                 $homeController = new HomeController();
-                $homeController->addFoundation($_SESSION['userid']);
+                $concreteController->addFoundation($_SESSION['userid']);
             }else {
                 header("location: logout.php");
             }
@@ -29,30 +30,34 @@
         
         <header>
             <div class="container-fluid">
-                <div class="row justify-content-center">
-                    
-                </div> 
                 <div class="row justify-content-center"> 
-                    <h2 align="center"> Foundations </h2>
+                    <h2 align="center">Concrete Slabs</h2>
                 </div> 
                 <div class="row justify-content-center">
                     <div class="col-sm-9">
                         <form role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                             <div class="form-group">
                                 <label for ="sitenum">Site Number</label>
-                                <input type="text" class="form-control" id="sitenum" name="sitenum"/>
+                                    <select class="form-control" name="sitenum" required>
+                                        <?php
+                                        $sites = $homeController->getSites($userid);
+                                        foreach ($sites as $site) {
+                                            Print "<option>".$site->sitenum."</option>";
+                                        }
+                                        ?>
+                                    </select>
                             </div>
                             <div class="form-group">
                                 <label for ="width">Width (m): </label>
-                                <input type="text" class="form-control" id="width" name="width"/>
+                                <input type="text" class="form-control" id="width" name="width" required/>
                             </div>
                             <div class="form-group">
                                 <label for ="length">Length (m): </label>
-                                <input type="text" class="form-control" id="length" name="length"/>
+                                <input type="text" class="form-control" id="length" name="length" required/>
                             </div>
                             <div class="form-group">
                                 <label for ="depth">Depth (mm): </label>
-                                <input type="text" class="form-control" id="depth" name="depth"/>
+                                <input type="text" class="form-control" id="depth" name="depth" required/>
                             </div>
                             <div class="form-group">
                                 <input type="submit" name="addfoundation" value="Add"/>
@@ -69,15 +74,14 @@
                                 <th>42,5N (50kg) Bags</th>
                             </tr>
                             <?php
-                                $arrayOfFoundations = $homeController->getFoundations($userid);
-                                foreach ($arrayOfFoundations as $foundation) {
+                                $arrayOfSlabs = $concreteController->getFoundations($userid);
+                                foreach ($arrayOfSlabs as $slab) {
                                     Print "<tr>";
-                                        Print "<td>".$foundation->sitenum."</td>";
-                                        Print "<td>".$foundation->depth."</td>";
-                                        Print "<td>".$foundation->length."</td>";
-                                        Print "<td>".$foundation->width."</td>";
-                                        Print "<td>".$foundation->bags."</td>";
-                                        // Print "<td><a href='delete.php'>Delete</a></td>";
+                                        Print "<td>".$slab->sitenum."</td>";
+                                        Print "<td>".$slab->depth."</td>";
+                                        Print "<td>".$slab->length."</td>";
+                                        Print "<td>".$slab->width."</td>";
+                                        Print "<td>".$slab->bags."</td>";
                                     Print "</tr>";
                                 }
                             ?>

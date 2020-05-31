@@ -13,8 +13,9 @@
             // include 'model_lib.php';
             session_start();
             if($_SESSION['userid']){
+                $plasterController = new PlasterController();
                 $homeController = new HomeController();
-                $homeController->addFoundation($_SESSION['userid']);
+                $plasterController->addPlaster($_SESSION['userid']);
             }else {
                 header("location: logout.php");
             }
@@ -39,7 +40,14 @@
                         <form role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                             <div class="form-group">
                                 <label for ="sitenum">Site Number</label>
-                                <input type="text" class="form-control" id="sitenum" name="sitenum"/>
+                                <select class="form-control" name="sitenum" required>
+                                    <?php
+                                    $sites = $homeController->getSites($userid);
+                                    foreach ($sites as $site) {
+                                        Print "<option>".$site->sitenum."</option>";
+                                    }
+                                    ?>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for ="width">Width (m): </label>
@@ -54,7 +62,7 @@
                                 <input type="text" class="form-control" id="depth" name="depth"/>
                             </div>
                             <div class="form-group">
-                                <input type="submit" name="addfoundation" value="Add"/>
+                                <input type="submit" name="addplaster" value="Add"/>
                             </div>
                         </form>
                     </div>
@@ -68,14 +76,14 @@
                                 <th>42,5N (50kg) Bags</th>
                             </tr>
                             <?php
-                                $arrayOfFoundations = $homeController->getFoundations($userid);
-                                foreach ($arrayOfFoundations as $foundation) {
+                                $arrayOfPlaster = $plasterController->getPlasters($userid);
+                                foreach ($arrayOfPlaster as $plaster) {
                                     Print "<tr>";
-                                        Print "<td>".$foundation->sitenum."</td>";
-                                        Print "<td>".$foundation->depth."</td>";
-                                        Print "<td>".$foundation->length."</td>";
-                                        Print "<td>".$foundation->width."</td>";
-                                        Print "<td>".$foundation->bags."</td>";
+                                        Print "<td>".$plaster->sitenum."</td>";
+                                        Print "<td>".$plaster->depth."</td>";
+                                        Print "<td>".$plaster->length."</td>";
+                                        Print "<td>".$plaster->width."</td>";
+                                        Print "<td>".$plaster->bags."</td>";
                                         // Print "<td><a href='delete.php'>Delete</a></td>";
                                     Print "</tr>";
                                 }

@@ -12,9 +12,12 @@
             include 'controller_lib.php';
             // include 'model_lib.php';
             session_start();
+            $siteId = "";
             if($_SESSION['userid']){
                 $homeController = new HomeController();
-                $homeController->addFoundation($_SESSION['userid']);
+                // $homeController->getSites($_SESSION['userid']);
+                $homeController->addSite($_SESSION['userid']);
+                $siteId = $homeController->filterSite($_SESSION['userid']);
             }else {
                 header("location: logout.php");
             }
@@ -29,61 +32,47 @@
         
         <header>
             <div class="container-fluid">
-                <div class="row justify-content-center">
-                    
-                </div> 
                 <div class="row justify-content-center"> 
-                    <h2 align="center"> Foundations </h2>
+                    <h2 align="center"> Sites </h2>
                 </div> 
                 <div class="row justify-content-center">
-                    <div class="col-sm-9">
+                    <div class="col-4">
+                    </div>
+                    <div class="col">
                         <form role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                             <div class="form-group">
-                                <label for ="sitenum">Site Number</label>
-                                <input type="text" class="form-control" id="sitenum" name="sitenum"/>
+                                <label for ="sitenum">Add Site</label>
+                                <input type="text" class="form-control" name="sitenum"/>
                             </div>
                             <div class="form-group">
-                                <label for ="width">Width (m): </label>
-                                <input type="text" class="form-control" id="width" name="width"/>
-                            </div>
-                            <div class="form-group">
-                                <label for ="length">Length (m): </label>
-                                <input type="text" class="form-control" id="length" name="length"/>
-                            </div>
-                            <div class="form-group">
-                                <label for ="depth">Depth (mm): </label>
-                                <input type="text" class="form-control" id="depth" name="depth"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" name="addfoundation" value="Add"/>
+                                <input type="submit" name="addSite" value="Add Site"/>
                             </div>
                         </form>
                     </div>
-                    <div class="col-sm-9">
-                        <table class="table" align="center" border= "1px" width="100%">
-                            <tr align="center">
-                                <th>Sitename</th>
-                                <th>Width(m)</th>
-                                <th>Length(m)</th>
-                                <th>Depth(mm)</th>
-                                <th>42,5N (50kg) Bags</th>
-                            </tr>
-                            <?php
-                                $arrayOfFoundations = $homeController->getFoundations($userid);
-                                foreach ($arrayOfFoundations as $foundation) {
-                                    Print "<tr>";
-                                        Print "<td>".$foundation->sitenum."</td>";
-                                        Print "<td>".$foundation->depth."</td>";
-                                        Print "<td>".$foundation->length."</td>";
-                                        Print "<td>".$foundation->width."</td>";
-                                        Print "<td>".$foundation->bags."</td>";
-                                        // Print "<td><a href='delete.php'>Delete</a></td>";
-                                    Print "</tr>";
-                                }
-                            ?>
-                        </table>
+                    <div class="col">
+                        <form role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                            <div class="form-group">
+                                <label for="sitelist">Filter By Site</label>
+                                <select class="form-control" name="sitelist">
+                                    <?php
+                                    $sites = $homeController->getSites($userid);
+                                    foreach ($sites as $site) {
+                                        Print "<option>".$site->sitenum."</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="filterSite" value="Filter Site"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-4">
                     </div>
                 </div>
+                <?php
+                    include 'hometables.php'
+                ?>
             </div>
         </header>
     </body>

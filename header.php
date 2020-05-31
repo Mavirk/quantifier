@@ -4,15 +4,15 @@
                     <a class="navbar-brand" href="home.php">Home</a>
                 </div>
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link " data-value="screed"href="screed.php">Screed</a>    
-                    </li>
                     <li class="nav-item"> 
                         <a class="nav-link " data-value="concrete" href="concrete.php">Concrete</a>
                     </li>   
                     <li class="nav-item">  
                         <a class="nav-link " data-value="plaster" href="plaster.php">Plaster</a>
                     </li>  
+                    <li class="nav-item">
+                        <a class="nav-link " data-value="screed"href="screed.php">Screed</a>    
+                    </li>
                     <li class="nav-item"> 
                         <a class="nav-link " data-value="contact" href="contact.php">Contact</a>
                     </li> 

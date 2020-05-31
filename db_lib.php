@@ -73,6 +73,208 @@
         }
     }
 
+    class SiteTable {
+        
+        public $db;
+
+        function __construct(){
+            $this->db = new PDO('sqlite:database.sqlite');
+            $this->createTable();
+        }
+        function createTable(){
+            $this->db->exec("CREATE TABLE Site (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                UserId INTEGER KEY NOT NULL,
+                SiteNum TEXT NOT NULL)");    
+        }
+
+        function addSite($site){
+            $res = $this->db->exec("INSERT INTO Site (UserId, SiteNum) VALUES (
+                '$site->userId',
+                '$site->sitenum');");
+            if ($res == 0){
+                Print "doesnt add";
+            }
+            return $res;
+            
+        }
+    
+        function getSite($userId){ 
+            // $id = $userId * 1;
+            $Site = array();
+            $queryString = "SELECT * FROM Site WHERE UserId =:uid";
+            $stmt = $this->db->prepare($queryString);
+            $stmt->bindParam(':uid', $userId);
+            $stmt->execute();
+            $results = $stmt->fetchAll();
+            $resultCount = count($results);
+            if ($resultCount > 0){
+                foreach($results as $result){
+                    array_push($Site, new Site($result['Id'], $result['UserId'], $result['SiteNum']));
+                }
+            } else{
+                Print "No site records yet";
+            }
+            return $Site;
+        }
+
+        function getDB(){
+            return $this->db;
+        }
+
+        function closeDB(){
+            $this->db = NULL;
+        }
+
+        function log($value){
+            echo "<pre>" . print_r($value, 1) . "</pre>";
+        }
+    }
+
+    
+
+    class PlasterTable {
+        
+        public $db;
+
+        function __construct(){
+            $this->db = new PDO('sqlite:database.sqlite');
+            $this->db->exec("CREATE TABLE Plaster (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, UserId INTEGER KEY NOT NULL, SiteNum TEXT NOT NULL, Width INTEGER NOT NULL, Length INTEGER NOT NULL, Depth INTEGER NOT NULL, Bags INTEGER NOT NULL)");    
+        }
+        function createTable(){
+            $this->db->exec("CREATE TABLE Plaster (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, UserId INTEGER KEY NOT NULL, SiteNum TEXT NOT NULL, Width INTEGER NOT NULL, Length INTEGER NOT NULL, Depth INTEGER NOT NULL, Bags INTEGER NOT NULL)");    
+        }
+
+        function addPlaster($plaster){
+            $res = $this->db->exec("INSERT INTO Plaster (UserId, SiteNum, Width, Length, Depth, Bags) VALUES ('$plaster->userId', '$plaster->sitenum', '$plaster->width', '$plaster->length', '$plaster->depth', '$plaster->bags');");
+            if ($res == 0){
+                Print "doesnt add";
+            }
+            return $res;
+            
+        }
+    
+        function getPlasterbySite($siteId){ 
+            // $id = $userId * 1;
+            $Plaster = array();
+            $queryString = "SELECT * FROM Plaster WHERE SiteNum =:uid";
+            $stmt = $this->db->prepare($queryString);
+            $stmt->bindParam(':uid', $siteId);
+            $stmt->execute();
+            $results = $stmt->fetchAll();
+            $resultCount = count($results);
+            if ($resultCount > 0){
+                foreach($results as $result){
+                    array_push($Plaster, new Plaster($result['Id'], $result['UserId'], $result['SiteNum'], $result['Width'], $result['Length'], $result['Depth'], $result['Bags']));
+                }
+            } else{
+                Print "No plaster records yet";
+            }
+            return $Plaster;
+        }
+
+        function getPlaster($userId){ 
+            // $id = $userId * 1;
+            $Plaster = array();
+            $queryString = "SELECT * FROM Plaster WHERE UserId =:uid";
+            $stmt = $this->db->prepare($queryString);
+            $stmt->bindParam(':uid', $userId);
+            $stmt->execute();
+            $results = $stmt->fetchAll();
+            $resultCount = count($results);
+            if ($resultCount > 0){
+                foreach($results as $result){
+                    array_push($Plaster, new Plaster($result['Id'], $result['UserId'], $result['SiteNum'], $result['Width'], $result['Length'], $result['Depth'], $result['Bags']));
+                }
+            } else{
+                Print "No plaster records yet";
+            }
+            return $Plaster;
+        }
+
+        function getDB(){
+            return $this->db;
+        }
+
+        function closeDB(){
+            $this->db = NULL;
+        }
+
+        function log($value){
+            echo "<pre>" . print_r($value, 1) . "</pre>";
+        }
+    }
+
+    class ScreedTable {
+        
+        public $db;
+
+        function __construct(){
+            $this->db = new PDO('sqlite:database.sqlite');
+            $this->createTable();
+        }
+        function createTable(){
+            $this->db->exec("CREATE TABLE Screed (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, UserId INTEGER KEY NOT NULL, SiteNum TEXT NOT NULL, Width INTEGER NOT NULL, Length INTEGER NOT NULL, Depth INTEGER NOT NULL, Bags INTEGER NOT NULL)");    
+        }
+
+        function addScreed($screed){
+            $res = $this->db->exec("INSERT INTO Screed (UserId, SiteNum, Width, Length, Depth, Bags) VALUES ('$screed->userId', '$screed->sitenum', '$screed->width', '$screed->length', '$screed->depth', '$screed->bags');");
+            if ($res == 0){
+                Print "doesnt add";
+            }
+            return $res;
+            
+        }
+        function getScreedbySite($siteId){ 
+            // $id = $userId * 1;
+            $Screed = array();
+            $queryString = "SELECT * FROM Screed WHERE SiteNum =:uid";
+            $stmt = $this->db->prepare($queryString);
+            $stmt->bindParam(':uid', $siteId);
+            $stmt->execute();
+            $results = $stmt->fetchAll();
+            $resultCount = count($results);
+            if ($resultCount > 0){
+                foreach($results as $result){
+                    array_push($Screed, new Screed($result['Id'], $result['UserId'], $result['SiteNum'], $result['Width'], $result['Length'], $result['Depth'], $result['Bags']));
+                }
+            } else{
+                Print "No screed records yet";
+            }
+            return $Screed;
+        }
+    
+        function getScreed($userId){ 
+            // $id = $userId * 1;
+            $Screed = array();
+            $queryString = "SELECT * FROM Screed WHERE UserId =:uid";
+            $stmt = $this->db->prepare($queryString);
+            $stmt->bindParam(':uid', $userId);
+            $stmt->execute();
+            $results = $stmt->fetchAll();
+            $resultCount = count($results);
+            if ($resultCount > 0){
+                foreach($results as $result){
+                    array_push($Screed, new Screed($result['Id'], $result['UserId'], $result['SiteNum'], $result['Width'], $result['Length'], $result['Depth'], $result['Bags']));
+                }
+            } else{
+                Print "No screed records yet";
+            }
+            return $Screed;
+        }
+
+        function getDB(){
+            return $this->db;
+        }
+
+        function closeDB(){
+            $this->db = NULL;
+        }
+
+        function log($value){
+            echo "<pre>" . print_r($value, 1) . "</pre>";
+        }
+    }
 
     class FoundationTable {
         
@@ -92,9 +294,28 @@
                 Print "doesnt add";
             }
             return $res;
-            
+
         }
     
+        function getFoundationsbySite($siteId){ 
+            // $id = $userId * 1;
+            $foundations = array();
+            $queryString = "SELECT * FROM Foundations WHERE SiteNum =:uid";
+            $stmt = $this->db->prepare($queryString);
+            $stmt->bindParam(':uid', $siteId);
+            $stmt->execute();
+            $results = $stmt->fetchAll();
+            $resultCount = count($results);
+            if ($resultCount > 0){
+                foreach($results as $result){
+                    array_push($foundations, new Foundation($result['Id'], $result['UserId'], $result['SiteNum'], $result['Width'], $result['Length'], $result['Depth'], $result['Bags']));
+                }
+            } else{
+                Print "No foundation records yet";
+            }
+            return $foundations;
+        }
+
         function getFoundations($userId){ 
             // $id = $userId * 1;
             $foundations = array();

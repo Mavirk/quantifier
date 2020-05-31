@@ -3,65 +3,106 @@
     include 'view_lib.php';
     include 'db_lib.php';
     class HomeController{
-        public $foundationTable;
+        public $siteTable;
+        public $slabTable;
+        public $screedTable;
+        public $plasterTable;
 
         function __construct(){
-            $this->foundationTable = new FoundationTable();
+            $this->siteTable = new SiteTable();
+            $this->slabTable = new FoundationTable();
+            $this->screedTable = new ScreedTable();
+            $this->plasterTable = new PlasterTable();
         }
 
-        function getFoundations($user){
+        function getSites($user){
             try {
-                return $this->foundationTable->getFoundations($user);
+                return $this->siteTable->getSite($user);
             } catch (Exception $e) {
                 print 'Exception : '.$e->getMessage();
             }
         }
 
-        function addFoundation($userid){
+        function getSlabs($siteId){
             try {
-                if (isset($_POST['addfoundation'])){
+                return $this->slabTable->getFoundationsbySite($siteId);
+            } catch (Exception $e) {
+                print 'Exception : '.$e->getMessage();
+            }
+        }
+
+
+        function getPlaster($user){
+            try {
+                return $this->plasterTable->getPlasterbySite($user);
+            } catch (Exception $e) {
+                print 'Exception : '.$e->getMessage();
+            }
+        }
+
+        function getScreed($user){
+            try {
+                return $this->screedTable->getScreedbySite($user);
+            } catch (Exception $e) {
+                print 'Exception : '.$e->getMessage();
+            }
+        }
+
+        function addSite($userid){
+            try {
+                if (isset($_POST['addSite'])){
                     $sitenum = $_POST['sitenum'];
-                    $depth = $_POST['depth'];
-                    $width = $_POST['width'];
-                    $length = $_POST['length'];
-                    $foundation = new Foundation(Null, $userid, $sitenum, $depth, $length, $width);
-                    if ($this->foundationTable->addFoundation($foundation)){
-                        echo "Foundation Record created successfully\n";
+                    $site = new Site(Null, $userid, $sitenum);
+                    if ($this->siteTable->addSite($site)){
+                        echo "Site Record created successfully\n";
                     }
                 }
             } catch (PDOException $e) {
                 print 'Exception : '.$e->getMessage();
             }
         }
+
+        function filterSite($userid){
+            try {
+                if (isset($_POST['filterSite'])){
+                    $sitenum = $_POST['sitelist'];
+                    return $sitenum;
+                }
+            } catch (PDOException $e) {
+                print 'Exception : '.$e->getMessage();
+            }
+        }
+
         function log($value){
             echo "<pre>" . print_r($value, 1) . "</pre>";
         }
     }
+
     class PlasterController{
-        public $foundationTable;
+        public $plasterTable;
 
         function __construct(){
-            $this->foundationTable = new FoundationTable();
+            $this->plasterTable = new PlasterTable();
         }
 
-        function getFoundations($user){
+        function getPlasters($user){
             try {
-                return $this->foundationTable->getFoundations($user);
+                return $this->plasterTable->getPlaster($user);
             } catch (Exception $e) {
                 print 'Exception : '.$e->getMessage();
             }
         }
 
-        function addFoundation($userid){
+        function addPlaster($userid){
             try {
-                if (isset($_POST['addfoundation'])){
+                if (isset($_POST['addplaster'])){
                     $sitenum = $_POST['sitenum'];
                     $depth = $_POST['depth'];
                     $width = $_POST['width'];
                     $length = $_POST['length'];
-                    $foundation = new Foundation(Null, $userid, $sitenum, $depth, $length, $width);
-                    if ($this->foundationTable->addFoundation($foundation)){
-                        echo "Foundation Record created successfully\n";
+                    $plaster = new Plaster(Null, $userid, $sitenum, $depth, $length, $width);
+                    if ($this->plasterTable->addPlaster($plaster)){
+                        echo "Plaster Record created successfully\n";
                     }
                 }
             } catch (PDOException $e) {
@@ -73,30 +114,30 @@
         }
     }
     class ScreedController{
-        public $foundationTable;
+        public $screedTable;
 
         function __construct(){
-            $this->foundationTable = new FoundationTable();
+            $this->screedTable = new ScreedTable();
         }
 
-        function getFoundations($user){
+        function getScreeds($user){
             try {
-                return $this->foundationTable->getFoundations($user);
+                return $this->screedTable->getScreed($user);
             } catch (Exception $e) {
                 print 'Exception : '.$e->getMessage();
             }
         }
 
-        function addFoundation($userid){
+        function addScreed($userid){
             try {
-                if (isset($_POST['addfoundation'])){
+                if (isset($_POST['addscreed'])){
                     $sitenum = $_POST['sitenum'];
                     $depth = $_POST['depth'];
                     $width = $_POST['width'];
                     $length = $_POST['length'];
-                    $foundation = new Foundation(Null, $userid, $sitenum, $depth, $length, $width);
-                    if ($this->foundationTable->addFoundation($foundation)){
-                        echo "Foundation Record created successfully\n";
+                    $screed = new Screed(Null, $userid, $sitenum, $depth, $length, $width);
+                    if ($this->screedTable->addScreed($screed)){
+                        echo "Screed Record created successfully\n";
                     }
                 }
             } catch (PDOException $e) {

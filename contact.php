@@ -14,13 +14,9 @@
             session_start();
             if($_SESSION['userid']){
                 $homeController = new HomeController();
-                $homeController->addFoundation($_SESSION['userid']);
             }else {
                 header("location: logout.php");
             }
-            $userid = $_SESSION['userid'];
-            $userTable = new UserTable();
-            $user = $userTable->getUserbyId($userid);
         ?>
 
         <?php
