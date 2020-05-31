@@ -74,6 +74,7 @@
                                 <th>Length(m)</th>
                                 <th>Depth(mm)</th>
                                 <th>42,5N (50kg) Bags</th>
+                                <th>Plaster Sand(m³)</th>
                             </tr>
                             <?php
                                 $arrayOfPlaster = $plasterController->getPlasters($userid);
@@ -84,6 +85,7 @@
                                         Print "<td>".$plaster->length."</td>";
                                         Print "<td>".$plaster->width."</td>";
                                         Print "<td>".$plaster->bags."</td>";
+                                        Print "<td>".$plaster->sand."</td>";
                                         // Print "<td><a href='delete.php'>Delete</a></td>";
                                     Print "</tr>";
                                 }

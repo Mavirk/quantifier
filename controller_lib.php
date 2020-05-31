@@ -32,17 +32,17 @@
         }
 
 
-        function getPlaster($user){
+        function getPlaster($siteId){
             try {
-                return $this->plasterTable->getPlasterbySite($user);
+                return $this->plasterTable->getPlasterbySite($siteId);
             } catch (Exception $e) {
                 print 'Exception : '.$e->getMessage();
             }
         }
 
-        function getScreed($user){
+        function getScreed($siteId){
             try {
-                return $this->screedTable->getScreedbySite($user);
+                return $this->screedTable->getScreedbySite($siteId);
             } catch (Exception $e) {
                 print 'Exception : '.$e->getMessage();
             }

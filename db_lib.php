@@ -139,14 +139,25 @@
 
         function __construct(){
             $this->db = new PDO('sqlite:database.sqlite');
-            $this->db->exec("CREATE TABLE Plaster (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, UserId INTEGER KEY NOT NULL, SiteNum TEXT NOT NULL, Width INTEGER NOT NULL, Length INTEGER NOT NULL, Depth INTEGER NOT NULL, Bags INTEGER NOT NULL)");    
+            $this->createTable();
         }
         function createTable(){
-            $this->db->exec("CREATE TABLE Plaster (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, UserId INTEGER KEY NOT NULL, SiteNum TEXT NOT NULL, Width INTEGER NOT NULL, Length INTEGER NOT NULL, Depth INTEGER NOT NULL, Bags INTEGER NOT NULL)");    
+            $this->db->exec("CREATE TABLE Plaster (
+                            Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                            UserId INTEGER KEY NOT NULL,
+                            SiteNum TEXT NOT NULL,
+                            Width INTEGER NOT NULL, 
+                            Length INTEGER NOT NULL,
+                            Depth INTEGER NOT NULL, 
+                            Bags INTEGER NOT NULL,
+                            Sand INTEGER NOT NULL)");    
         }
 
         function addPlaster($plaster){
-            $res = $this->db->exec("INSERT INTO Plaster (UserId, SiteNum, Width, Length, Depth, Bags) VALUES ('$plaster->userId', '$plaster->sitenum', '$plaster->width', '$plaster->length', '$plaster->depth', '$plaster->bags');");
+            $res = $this->db->exec(
+                "INSERT INTO Plaster (UserId, SiteNum, Width, Length, Depth, Bags, Sand) VALUES 
+                ('$plaster->userId', '$plaster->sitenum', '$plaster->width', '$plaster->length', '$plaster->depth', '$plaster->bags', '$plaster->sand');"
+            );
             if ($res == 0){
                 Print "doesnt add";
             }
@@ -165,7 +176,15 @@
             $resultCount = count($results);
             if ($resultCount > 0){
                 foreach($results as $result){
-                    array_push($Plaster, new Plaster($result['Id'], $result['UserId'], $result['SiteNum'], $result['Width'], $result['Length'], $result['Depth'], $result['Bags']));
+                    array_push($Plaster, new Plaster(
+                                                    $result['Id'],
+                                                    $result['UserId'],
+                                                    $result['SiteNum'],
+                                                    $result['Width'],
+                                                    $result['Length'],
+                                                    $result['Depth'],
+                                                    $result['Bags'],
+                                                    $result['Sand']));
                 }
             } else{
                 Print "No plaster records yet";
@@ -184,13 +203,22 @@
             $resultCount = count($results);
             if ($resultCount > 0){
                 foreach($results as $result){
-                    array_push($Plaster, new Plaster($result['Id'], $result['UserId'], $result['SiteNum'], $result['Width'], $result['Length'], $result['Depth'], $result['Bags']));
+                    array_push($Plaster, new Plaster(
+                                                    $result['Id'],
+                                                    $result['UserId'],
+                                                    $result['SiteNum'],
+                                                    $result['Width'],
+                                                    $result['Length'],
+                                                    $result['Depth'],
+                                                    $result['Bags'],
+                                                    $result['Sand']));
                 }
             } else{
                 Print "No plaster records yet";
             }
             return $Plaster;
         }
+
 
         function getDB(){
             return $this->db;

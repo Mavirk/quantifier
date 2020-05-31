@@ -42,7 +42,7 @@
                         <form role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                             <div class="form-group">
                                 <label for ="sitenum">Add Site</label>
-                                <input type="text" class="form-control" name="sitenum"/>
+                                <input type="text" class="form-control" name="sitenum" required/>
                             </div>
                             <div class="form-group">
                                 <input type="submit" name="addSite" value="Add Site"/>
