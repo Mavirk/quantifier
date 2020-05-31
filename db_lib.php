@@ -79,7 +79,7 @@
         public $db;
 
         function __construct(){
-            $this->db = new PDO('sqlite:quantifierDB.sqlite');
+            $this->db = new PDO('sqlite:database.sqlite');
             $this->db->exec("CREATE TABLE Foundations (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, UserId INTEGER KEY NOT NULL, SiteNum TEXT NOT NULL, Width INTEGER NOT NULL, Length INTEGER NOT NULL, Depth INTEGER NOT NULL, Bags INTEGER NOT NULL)");    
         }
         function createTable(){
