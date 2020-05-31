@@ -35,7 +35,7 @@
               </div>
               <div class="form-group">
                 <input class="col" type="submit" name ="register" value= "Register">
-                <a href="index.php" class="col"> Click here to login </a>
+                <a href="index.php" class="col" style="color:#148F77" > Click here to login </a>
               </div>
             </from>
           </div>

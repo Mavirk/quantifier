@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                   <input class="col" type="submit" name = "login" value= "Login">
-                  <a href="register.php" class="col"> Click here to register </a>
+                  <a href="register.php" class="col" style="color:#148F77" > Click here to register </a>
                 </div>
             </form>
           </div>
