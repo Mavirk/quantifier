@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
     <div class="col-8">
-        <div class="row justify-content-center"> <h5>Concrete</h5></div>
+        <div class="row justify-content-center p-5"> <h5>Concrete</h5></div>
         <table class="table table-striped" align="center" border= "1px" width="100%">
             <thead>
                 <tr align="center" class="thead-dark">
@@ -34,7 +34,7 @@
 
 <div class="row justify-content-center">
     <div class="col-8">
-        <div class="row justify-content-center"> <h5>Plaster</h5></div>
+        <div class="row justify-content-center p-5"> <h5>Plaster</h5></div>
         <table class="table table-striped" align="center" border= "1px" width="100%">
             <thead>
                 <tr align="center" class="thead-dark">
@@ -67,7 +67,7 @@
 
 <div class="row justify-content-center">
     <div class="col-8">
-        <div class="row justify-content-center"> <h5>Screed</h5></div>
+        <div class="row justify-content-center p-5"> <h5>Screed</h5></div>
         <table class="table table-striped" align="center" border= "1px" width="100%">
             <thead>
                 <tr align="center" class="thead-dark">

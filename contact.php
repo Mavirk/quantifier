@@ -25,11 +25,17 @@
         
         <header>
             <div class="container-fluid">
-                <div class="row justify-content-center"> 
-                    <div class="col"> 
-                        <h2 align="center">Contact Us</h2>
-                        <h6 align="center">Email: oatsrobert81@gmail.com</h6>
-                        <h6 align="center">Phone: +27 79 352 9648</h6>
+                <div class="row"> 
+                    <div class="col p-5"> 
+                        <div class="row justify-content-center p-5">
+                            <h2 align="center">Contact Us</h2>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <h6 align="center">Email: oatsrobert81@gmail.com</h6>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <h6 align="center">Phone: +27 79 352 9648</h6>
+                        </div>
                     </div>
                 </div> 
         </header>

@@ -32,7 +32,7 @@
         
         <header>
             <div class="container-fluid">
-                <div class="row justify-content-center"> 
+                <div class="row justify-content-center p-5"> 
                     <h2 align="center"> Sites </h2>
                 </div> 
                 <div class="row justify-content-center">

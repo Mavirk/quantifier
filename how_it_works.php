@@ -25,12 +25,22 @@
         
         <header>
             <div class="container-fluid">
-                <div class="row justify-content-center"> 
+                <div class="row"> 
                     <div class="col"> 
-                        <h2 align="center">How it works?</h2>
-                        <h6 align="left">1. From the Quants page add a new site.</h6>
-                        <h6 align="left">2. Add some measurements in the Concrete, Plaster and Screed caculators.</h6>
-                        <h6 align="left">3. Go back to Quants and filter by site to view all the quatifites added to that site.</h6>
+                        <div class="row justify-content-center p-5">
+                            <h2 align="center">How it works?</h2>
+                        </div>
+                        <div class="row p-5">
+                            <div class="col"> 
+                            </div>
+                            <div class="col"> 
+                                <h6 align="">1. From the Quants page add a new site.</h6>
+                                <h6 align="">2. Add some measurements in the Concrete, Plaster and Screed caculators.</h6>
+                                <h6 align="">3. Go back to Quants and filter by site to view all the quatifites added to that site.</h6>
+                            </div>
+                            <div class="col"> 
+                            </div>
+                        </div>
                     </div>
                 </div> 
         </header>
