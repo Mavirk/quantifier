@@ -69,12 +69,12 @@
                             <thead >
                                 <tr align="center" class="thead-dark">
                                     <th>Sitename</th>
-                                    <th>Width(m)</th>
-                                    <th>Length(m)</th>
-                                    <th>Depth(mm)</th>
                                     <th>42,5N (50kg) Bags</th>
                                     <th>Concrete Stone Agregate(m³)</th>
                                     <th>Sand(m³)</th>
+                                    <th>Width(m)</th>
+                                    <th>Length(m)</th>
+                                    <th>Thickness(mm)</th>
                                 </tr>
                             </thead>
                             <?php
@@ -82,12 +82,12 @@
                                 foreach ($arrayOfSlabs as $slab) {
                                     Print "<tr>";
                                         Print "<td>".$slab->sitenum."</td>";
-                                        Print "<td>".$slab->depth."</td>";
-                                        Print "<td>".$slab->length."</td>";
-                                        Print "<td>".$slab->width."</td>";
                                         Print "<td>".$slab->bags."</td>";
                                         Print "<td>".$slab->stone."</td>";
                                         Print "<td>".$slab->sand."</td>";
+                                        Print "<td>".$slab->width."</td>";
+                                        Print "<td>".$slab->length."</td>";
+                                        Print "<td>".$slab->depth."</td>";
                                     Print "</tr>";
                                 }
                             ?>

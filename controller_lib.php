@@ -100,7 +100,7 @@
                     $depth = $_POST['depth'];
                     $width = $_POST['width'];
                     $length = $_POST['length'];
-                    $plaster = new Plaster(Null, $userid, $sitenum, $depth, $length, $width);
+                    $plaster = new Plaster(Null, $userid, $sitenum, $width, $length, $depth);
                     if ($this->plasterTable->addPlaster($plaster)){
                         echo "Plaster Record created successfully\n";
                     }
@@ -135,7 +135,7 @@
                     $depth = $_POST['depth'];
                     $width = $_POST['width'];
                     $length = $_POST['length'];
-                    $screed = new Screed(Null, $userid, $sitenum, $depth, $length, $width);
+                    $screed = new Screed(Null, $userid, $sitenum, $width, $length, $depth);
                     if ($this->screedTable->addScreed($screed)){
                         echo "Screed Record created successfully\n";
                     }
@@ -170,7 +170,7 @@
                     $depth = $_POST['depth'];
                     $width = $_POST['width'];
                     $length = $_POST['length'];
-                    $foundation = new Foundation(Null, $userid, $sitenum, $depth, $length, $width);
+                    $foundation = new Foundation(Null, $userid, $sitenum, $width, $length, $depth);
                     if ($this->foundationTable->addFoundation($foundation)){
                         echo "Foundation Record created successfully\n";
                     }

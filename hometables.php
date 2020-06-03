@@ -5,12 +5,12 @@
             <thead>
                 <tr align="center" class="thead-dark">
                 <th>Site</th>
-                <th>Width(m)</th>
-                <th>Length(m)</th>
-                <th>Depth(mm)</th>
                 <th>42,5N (50kg) Bags</th>
                 <th>Concrete Stone Agregate(m³)</th>
                 <th>Building Sand(m³)</th>
+                <th>Width(m)</th>
+                <th>Length(m)</th>
+                <th>Thickness(mm)</th>
                 </tr>
             </thead>
             <?php
@@ -18,12 +18,12 @@
                 foreach ($arrayOfSlabs as $slab) {
                     Print "<tr>";
                         Print "<td>".$slab->sitenum."</td>";
-                        Print "<td>".$slab->depth."</td>";
-                        Print "<td>".$slab->length."</td>";
-                        Print "<td>".$slab->width."</td>";
                         Print "<td>".$slab->bags."</td>";
                         Print "<td>".$slab->stone."</td>";
                         Print "<td>".$slab->sand."</td>";
+                        Print "<td>".$slab->width."</td>";
+                        Print "<td>".$slab->length."</td>";
+                        Print "<td>".$slab->depth."</td>";
                     Print "</tr>";
                 }
             ?>
@@ -39,11 +39,11 @@
             <thead>
                 <tr align="center" class="thead-dark">
                     <th>Site</th>
-                    <th>Width(m)</th>
-                    <th>Length(m)</th>
-                    <th>Thickness of plaster(mm)</th>
                     <th>42,5N (50kg) Bags</th>
                     <th>Plaster Sand(m³)</th>
+                    <th>Width(m)</th>
+                    <th>Length(m)</th>
+                    <th>Thickness(mm)</th>
                 </tr>
             </thead>
             <?php
@@ -51,11 +51,11 @@
                 foreach ($arrayOfPlaster as $plaster) {
                     Print "<tr>";
                         Print "<td>".$plaster->sitenum."</td>";
-                        Print "<td>".$plaster->depth."</td>";
-                        Print "<td>".$plaster->length."</td>";
-                        Print "<td>".$plaster->width."</td>";
                         Print "<td>".$plaster->bags."</td>";
                         Print "<td>".$plaster->sand."</td>";
+                        Print "<td>".$plaster->width."</td>";
+                        Print "<td>".$plaster->length."</td>";
+                        Print "<td>".$plaster->depth."</td>";
                         // Print "<td><a href='delete.php'>Delete</a></td>";
                     Print "</tr>";
                 }
@@ -72,11 +72,11 @@
             <thead>
                 <tr align="center" class="thead-dark">
                     <th>Site</th>
-                    <th>Width(m)</th>
-                    <th>Length(m)</th>
-                    <th>Depth(mm)</th>
                     <th>42,5N (50kg) Bags</th>
                     <th>Sand(m³)</th>
+                    <th>Width(m)</th>
+                    <th>Length(m)</th>
+                    <th>Thickness(mm)</th>
                 </tr>
             </thead>
         <?php
@@ -84,11 +84,11 @@
             foreach ($arrayOfSlabs as $slab) {
                 Print "<tr>";
                     Print "<td>".$slab->sitenum."</td>";
-                    Print "<td>".$slab->depth."</td>";
-                    Print "<td>".$slab->length."</td>";
-                    Print "<td>".$slab->width."</td>";
                     Print "<td>".$slab->bags."</td>";
                     Print "<td>".$slab->sand."</td>";
+                    Print "<td>".$slab->width."</td>";
+                    Print "<td>".$slab->length."</td>";
+                    Print "<td>".$slab->depth."</td>";
                 Print "</tr>";
             }
         ?>

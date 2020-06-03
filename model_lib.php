@@ -47,7 +47,7 @@
         public $sand;
 
 
-        function __construct($id, $userId, $sitenum, $depth, $length, $width, $bags = 0, $sand = 0){
+        function __construct($id, $userId, $sitenum, $width, $length, $depth, $bags = 0, $sand = 0){
             $this->id = $id;
             $this->userId = $userId;
             $this->sitenum = $sitenum;
@@ -86,7 +86,7 @@
         public $bags;
         public $sand;
 
-        function __construct($id, $userId, $sitenum, $depth, $length, $width, $bags = 0, $sand = 0){
+        function __construct($id, $userId, $sitenum, $width, $length, $depth, $bags = 0, $sand = 0){
             $this->id = $id;
             $this->userId = $userId;
             $this->sitenum = $sitenum;
@@ -126,7 +126,7 @@
         public $stone;
         public $sand;
 
-        function __construct($id, $userId, $sitenum, $depth, $length, $width, $bags = 0, $stone = 0, $sand = 0){
+        function __construct($id, $userId, $sitenum, $width, $length, $depth, $bags = 0, $stone = 0, $sand = 0){
             $this->id = $id;
             $this->userId = $userId;
             $this->sitenum = $sitenum;

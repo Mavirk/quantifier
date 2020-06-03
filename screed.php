@@ -71,11 +71,11 @@
                             <thead >
                                 <tr align="center" class="thead-dark">
                                     <th>Sitename</th>
-                                    <th>Width(m)</th>
-                                    <th>Length(m)</th>
-                                    <th>Depth(mm)</th>
                                     <th>42,5N (50kg) Bags</th>
                                     <th>Sand(m³)</th>
+                                    <th>Width(m)</th>
+                                    <th>Length(m)</th>
+                                    <th>Thickness(mm)</th>
                                 </tr>
                             </thead>
                             <?php
@@ -83,11 +83,11 @@
                                 foreach ($screeds as $screed) {
                                     Print '<tr>';
                                         Print "<td>".$screed->sitenum."</td>";
-                                        Print "<td>".$screed->depth."</td>";
-                                        Print "<td>".$screed->length."</td>";
-                                        Print "<td>".$screed->width."</td>";
                                         Print "<td>".$screed->bags."</td>";
                                         Print "<td>".$screed->sand."</td>";
+                                        Print "<td>".$screed->width."</td>";
+                                        Print "<td>".$screed->length."</td>";
+                                        Print "<td>".$screed->depth."</td>";
                                         // Print "<td><a href='delete.php'>Delete</a></td>";
                                     Print "</tr>";
                                 }

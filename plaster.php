@@ -58,7 +58,7 @@
                                 <input type="text" class="form-control" id="length" name="length"/>
                             </div>
                             <div class="form-group">
-                                <label for ="depth">Depth (mm): </label>
+                                <label for ="depth">Thickness(mm): </label>
                                 <input type="text" class="form-control" id="depth" name="depth"/>
                             </div>
                             <div class="form-group">
@@ -70,12 +70,12 @@
                         <table class="table table-striped" align="center" border= "1px" width="100%">
                             <thead >
                                 <tr align="center" class="thead-dark">
-                                    <th>Sitename</th>
-                                    <th>Width(m)</th>
-                                    <th>Length(m)</th>
-                                    <th>Depth(mm)</th>
+                                    <th>Site</th>
                                     <th>42,5N (50kg) Bags</th>
                                     <th>Plaster Sand(m³)</th>
+                                    <th>Width(m)</th>
+                                    <th>Length(m)</th>
+                                    <th>Thickness(mm)</th>
                                 </tr>
                             </thead>
                             <?php
@@ -83,11 +83,11 @@
                                 foreach ($arrayOfPlaster as $plaster) {
                                     Print "<tr>";
                                         Print "<td>".$plaster->sitenum."</td>";
-                                        Print "<td>".$plaster->depth."</td>";
-                                        Print "<td>".$plaster->length."</td>";
-                                        Print "<td>".$plaster->width."</td>";
                                         Print "<td>".$plaster->bags."</td>";
                                         Print "<td>".$plaster->sand."</td>";
+                                        Print "<td>".$plaster->width."</td>";
+                                        Print "<td>".$plaster->length."</td>";
+                                        Print "<td>".$plaster->depth."</td>";
                                         // Print "<td><a href='delete.php'>Delete</a></td>";
                                     Print "</tr>";
                                 }
