@@ -67,23 +67,27 @@
                         </form>
                     </div>
                     <div class="col-sm-9">
-                        <table class="table" align="center" border= "1px" width="100%">
-                            <tr align="center">
-                                <th>Sitename</th>
-                                <th>Width(m)</th>
-                                <th>Length(m)</th>
-                                <th>Depth(mm)</th>
-                                <th>42,5N (50kg) Bags</th>
-                            </tr>
+                        <table class="table table-striped" align="center" border= "1px" width="100%">
+                            <thead >
+                                <tr align="center" class="thead-dark">
+                                    <th>Sitename</th>
+                                    <th>Width(m)</th>
+                                    <th>Length(m)</th>
+                                    <th>Depth(mm)</th>
+                                    <th>42,5N (50kg) Bags</th>
+                                    <th>Sand(m³)</th>
+                                </tr>
+                            </thead>
                             <?php
                                 $screeds = $screedController->getScreeds($userid);
                                 foreach ($screeds as $screed) {
-                                    Print "<tr>";
+                                    Print '<tr>';
                                         Print "<td>".$screed->sitenum."</td>";
                                         Print "<td>".$screed->depth."</td>";
                                         Print "<td>".$screed->length."</td>";
                                         Print "<td>".$screed->width."</td>";
                                         Print "<td>".$screed->bags."</td>";
+                                        Print "<td>".$screed->sand."</td>";
                                         // Print "<td><a href='delete.php'>Delete</a></td>";
                                     Print "</tr>";
                                 }

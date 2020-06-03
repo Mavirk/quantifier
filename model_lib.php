@@ -44,8 +44,10 @@
         public $length;
         public $width;
         public $bags;
+        public $sand;
 
-        function __construct($id, $userId, $sitenum, $depth, $length, $width, $bags = 0){
+
+        function __construct($id, $userId, $sitenum, $depth, $length, $width, $bags = 0, $sand = 0){
             $this->id = $id;
             $this->userId = $userId;
             $this->sitenum = $sitenum;
@@ -54,14 +56,22 @@
             $this->width = $width;
             if ($bags == NULL){
                 $this->bags = $this->calculateBags();
+                $this->sand = $this->calculateSand();
             } else {
                 $this->bags = $bags;
+                $this->sand = $sand;
             }
         }
 
         function calculateBags(){
             $volume = ($this->depth / 1000) * $this->length * $this->width;
-            $bagcount = $volume * HIGH_STRENGTH_25_MPA;
+            $bagcount = $volume * SCREED_CEMENT;
+            return $bagcount;
+        }
+
+        function calculateSand(){
+            $volume = ($this->depth / 1000) * $this->length * $this->width;
+            $bagcount = $volume * SCREED_SAND;
             return $bagcount;
         }
     }
@@ -113,8 +123,10 @@
         public $length;
         public $width;
         public $bags;
+        public $stone;
+        public $sand;
 
-        function __construct($id, $userId, $sitenum, $depth, $length, $width, $bags = 0){
+        function __construct($id, $userId, $sitenum, $depth, $length, $width, $bags = 0, $stone = 0, $sand = 0){
             $this->id = $id;
             $this->userId = $userId;
             $this->sitenum = $sitenum;
@@ -123,14 +135,30 @@
             $this->width = $width;
             if ($bags == NULL){
                 $this->bags = $this->calculateBags();
+                $this->stone = $this->calculateStone();
+                $this->sand = $this->calculateSand();
             } else {
                 $this->bags = $bags;
+                $this->stone = $stone;
+                $this->sand = $sand;
             }
         }
 
         function calculateBags(){
             $volume = ($this->depth / 1000) * $this->length * $this->width;
             $bagcount = $volume * HIGH_STRENGTH_25_MPA;
+            return $bagcount;
+        }
+
+        function calculateStone(){
+            $volume = ($this->depth / 1000) * $this->length * $this->width;
+            $bagcount = $volume * CONCRETE_STONE;
+            return $bagcount;
+        }
+
+        function calculateSand(){
+            $volume = ($this->depth / 1000) * $this->length * $this->width;
+            $bagcount = $volume * BUILDING_SAND;
             return $bagcount;
         }
     }

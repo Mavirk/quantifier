@@ -67,15 +67,17 @@
                         </form>
                     </div>
                     <div class="col-sm-9">
-                        <table class="table" align="center" border= "1px" width="100%">
-                            <tr align="center">
-                                <th>Sitename</th>
-                                <th>Width(m)</th>
-                                <th>Length(m)</th>
-                                <th>Depth(mm)</th>
-                                <th>42,5N (50kg) Bags</th>
-                                <th>Plaster Sand(m³)</th>
-                            </tr>
+                        <table class="table table-striped" align="center" border= "1px" width="100%">
+                            <thead >
+                                <tr align="center" class="thead-dark">
+                                    <th>Sitename</th>
+                                    <th>Width(m)</th>
+                                    <th>Length(m)</th>
+                                    <th>Depth(mm)</th>
+                                    <th>42,5N (50kg) Bags</th>
+                                    <th>Plaster Sand(m³)</th>
+                                </tr>
+                            </thead>
                             <?php
                                 $arrayOfPlaster = $plasterController->getPlasters($userid);
                                 foreach ($arrayOfPlaster as $plaster) {

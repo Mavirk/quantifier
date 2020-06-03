@@ -6,7 +6,7 @@
 
         function __construct(){
             $this->db = new PDO('sqlite:database.sqlite');
-            $this->db->exec("CREATE TABLE Users (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Username TEXT NOT NULL, Email TEXT NOT NULL, Password TEXT NOT NULL)");    
+            $this->createTable();
         }
         function createTable(){
             $this->db->exec("CREATE TABLE Users (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Username TEXT NOT NULL, Email TEXT NOT NULL, Password TEXT NOT NULL)");    
@@ -143,14 +143,14 @@
         }
         function createTable(){
             $this->db->exec("CREATE TABLE Plaster (
-                            Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                            UserId INTEGER KEY NOT NULL,
-                            SiteNum TEXT NOT NULL,
-                            Width INTEGER NOT NULL, 
-                            Length INTEGER NOT NULL,
-                            Depth INTEGER NOT NULL, 
-                            Bags INTEGER NOT NULL,
-                            Sand INTEGER NOT NULL)");    
+                Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                UserId INTEGER KEY NOT NULL,
+                SiteNum TEXT NOT NULL,
+                Width INTEGER NOT NULL, 
+                Length INTEGER NOT NULL,
+                Depth INTEGER NOT NULL, 
+                Bags INTEGER NOT NULL,
+                Sand INTEGER NOT NULL)");    
         }
 
         function addPlaster($plaster){
@@ -177,14 +177,14 @@
             if ($resultCount > 0){
                 foreach($results as $result){
                     array_push($Plaster, new Plaster(
-                                                    $result['Id'],
-                                                    $result['UserId'],
-                                                    $result['SiteNum'],
-                                                    $result['Width'],
-                                                    $result['Length'],
-                                                    $result['Depth'],
-                                                    $result['Bags'],
-                                                    $result['Sand']));
+                        $result['Id'],
+                        $result['UserId'],
+                        $result['SiteNum'],
+                        $result['Width'],
+                        $result['Length'],
+                        $result['Depth'],
+                        $result['Bags'],
+                        $result['Sand']));
                 }
             } else{
                 Print "No plaster records yet";
@@ -204,14 +204,14 @@
             if ($resultCount > 0){
                 foreach($results as $result){
                     array_push($Plaster, new Plaster(
-                                                    $result['Id'],
-                                                    $result['UserId'],
-                                                    $result['SiteNum'],
-                                                    $result['Width'],
-                                                    $result['Length'],
-                                                    $result['Depth'],
-                                                    $result['Bags'],
-                                                    $result['Sand']));
+                        $result['Id'],
+                        $result['UserId'],
+                        $result['SiteNum'],
+                        $result['Width'],
+                        $result['Length'],
+                        $result['Depth'],
+                        $result['Bags'],
+                        $result['Sand']));
                 }
             } else{
                 Print "No plaster records yet";
@@ -242,11 +242,20 @@
             $this->createTable();
         }
         function createTable(){
-            $this->db->exec("CREATE TABLE Screed (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, UserId INTEGER KEY NOT NULL, SiteNum TEXT NOT NULL, Width INTEGER NOT NULL, Length INTEGER NOT NULL, Depth INTEGER NOT NULL, Bags INTEGER NOT NULL)");    
+            $this->db->exec("CREATE TABLE Screed (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                UserId INTEGER KEY NOT NULL, 
+                SiteNum TEXT NOT NULL, 
+                Width INTEGER NOT NULL, 
+                Length INTEGER NOT NULL, 
+                Depth INTEGER NOT NULL, 
+                Bags INTEGER NOT NULL,
+                Sand INTEGER NOT NULL)");    
         }
 
         function addScreed($screed){
-            $res = $this->db->exec("INSERT INTO Screed (UserId, SiteNum, Width, Length, Depth, Bags) VALUES ('$screed->userId', '$screed->sitenum', '$screed->width', '$screed->length', '$screed->depth', '$screed->bags');");
+            $res = $this->db->exec("INSERT INTO Screed (UserId, SiteNum, Width, Length, Depth, Bags, Sand) VALUES 
+            ('$screed->userId', '$screed->sitenum', '$screed->width', '$screed->length', '$screed->depth', '$screed->bags', '$screed->sand');");
             if ($res == 0){
                 Print "doesnt add";
             }
@@ -264,7 +273,15 @@
             $resultCount = count($results);
             if ($resultCount > 0){
                 foreach($results as $result){
-                    array_push($Screed, new Screed($result['Id'], $result['UserId'], $result['SiteNum'], $result['Width'], $result['Length'], $result['Depth'], $result['Bags']));
+                    array_push($Screed, new Screed(
+                        $result['Id'],
+                        $result['UserId'],
+                        $result['SiteNum'],
+                        $result['Width'],
+                        $result['Length'],
+                        $result['Depth'],
+                        $result['Bags'],
+                        $result['Sand']));
                 }
             } else{
                 Print "No screed records yet";
@@ -283,7 +300,15 @@
             $resultCount = count($results);
             if ($resultCount > 0){
                 foreach($results as $result){
-                    array_push($Screed, new Screed($result['Id'], $result['UserId'], $result['SiteNum'], $result['Width'], $result['Length'], $result['Depth'], $result['Bags']));
+                    array_push($Screed, new Screed(
+                        $result['Id'],
+                        $result['UserId'],
+                        $result['SiteNum'],
+                        $result['Width'],
+                        $result['Length'],
+                        $result['Depth'],
+                        $result['Bags'],
+                        $result['Sand']));
                 }
             } else{
                 Print "No screed records yet";
@@ -310,14 +335,24 @@
 
         function __construct(){
             $this->db = new PDO('sqlite:database.sqlite');
-            $this->db->exec("CREATE TABLE Foundations (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, UserId INTEGER KEY NOT NULL, SiteNum TEXT NOT NULL, Width INTEGER NOT NULL, Length INTEGER NOT NULL, Depth INTEGER NOT NULL, Bags INTEGER NOT NULL)");    
+            $this->createTable();
         }
         function createTable(){
-            $this->db->exec("CREATE TABLE Foundations (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, UserId INTEGER KEY NOT NULL, SiteNum TEXT NOT NULL, Width INTEGER NOT NULL, Length INTEGER NOT NULL, Depth INTEGER NOT NULL, Bags INTEGER NOT NULL)");    
+            $this->db->exec("CREATE TABLE Foundations (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+                UserId INTEGER KEY NOT NULL, 
+                SiteNum TEXT NOT NULL, 
+                Width INTEGER NOT NULL, 
+                Length INTEGER NOT NULL, 
+                Depth INTEGER NOT NULL,
+                Bags INTEGER NOT NULL, 
+                Stone INTEGER NOT NULL, 
+                Sand INTEGER NOT NULL)");    
         }
 
         function addFoundation($foundation){
-            $res = $this->db->exec("INSERT INTO Foundations (UserId, SiteNum, Width, Length, Depth, Bags) VALUES ('$foundation->userId', '$foundation->sitenum', '$foundation->width', '$foundation->length', '$foundation->depth', '$foundation->bags');");
+            $res = $this->db->exec("INSERT INTO Foundations (UserId, SiteNum, Width, Length, Depth, Bags, Stone, Sand) VALUES 
+            ('$foundation->userId', '$foundation->sitenum', '$foundation->width', '$foundation->length', '$foundation->depth', '$foundation->bags', '$foundation->stone', '$foundation->sand');");
             if ($res == 0){
                 Print "doesnt add";
             }
@@ -336,7 +371,16 @@
             $resultCount = count($results);
             if ($resultCount > 0){
                 foreach($results as $result){
-                    array_push($foundations, new Foundation($result['Id'], $result['UserId'], $result['SiteNum'], $result['Width'], $result['Length'], $result['Depth'], $result['Bags']));
+                    array_push($foundations, new Foundation(
+                        $result['Id'],
+                        $result['UserId'],
+                        $result['SiteNum'], 
+                        $result['Width'], 
+                        $result['Length'], 
+                        $result['Depth'], 
+                        $result['Bags'], 
+                        $result['Stone'], 
+                        $result['Sand']));
                 }
             } else{
                 Print "No foundation records yet";
@@ -355,7 +399,16 @@
             $resultCount = count($results);
             if ($resultCount > 0){
                 foreach($results as $result){
-                    array_push($foundations, new Foundation($result['Id'], $result['UserId'], $result['SiteNum'], $result['Width'], $result['Length'], $result['Depth'], $result['Bags']));
+                    array_push($foundations, new Foundation(
+                        $result['Id'],
+                        $result['UserId'],
+                        $result['SiteNum'], 
+                        $result['Width'], 
+                        $result['Length'], 
+                        $result['Depth'], 
+                        $result['Bags'], 
+                        $result['Stone'], 
+                        $result['Sand']));
                 }
             } else{
                 Print "No foundation records yet";
