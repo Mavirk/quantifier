@@ -34,9 +34,9 @@
                             <div class="col"> 
                             </div>
                             <div class="col"> 
-                                <h6 align="">1. From the Quants page add a new site.</h6>
-                                <h6 align="">2. Add some measurements in the Concrete, Plaster and Screed caculators.</h6>
-                                <h6 align="">3. Go back to Quants and filter by site to view all the quatifites added to that site.</h6>
+                                <h6 align="">1. From the Quantities page add a new site.</h6>
+                                <h6 align="">2. Populate your measurements in the Concrete, Plaster and Screed calculators.</h6>
+                                <h6 align="">3. Go back to Quantities page and filter by site to view all the quantities associated with that site.</h6>
                             </div>
                             <div class="col"> 
                             </div>

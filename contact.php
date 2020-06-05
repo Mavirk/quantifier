@@ -36,6 +36,9 @@
                         <div class="row justify-content-center p-1">
                             <h6 align="center">Phone: +27 79 352 9648</h6>
                         </div>
+                        <div class="row justify-content-center p-1">
+                            <h6 align="center">Name: Robert Murdoch</h6>
+                        </div>
                     </div>
                 </div> 
         </header>

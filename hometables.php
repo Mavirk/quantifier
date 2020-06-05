@@ -5,12 +5,12 @@
             <thead>
                 <tr align="center" class="thead-dark">
                 <th>Site</th>
-                <th>42,5N (50kg) Bags</th>
-                <th>Concrete Stone Agregate(m³)</th>
-                <th>Building Sand(m³)</th>
-                <th>Width(m)</th>
-                <th>Length(m)</th>
-                <th>Thickness(mm)</th>
+                <th>42,5N Cement (50kg Bags)</th>
+                <th>Concrete Stone Aggregate (m³)</th>
+                <th>Building Sand (m³)</th>
+                <th>Width (m)</th>
+                <th>Length (m)</th>
+                <th>Thickness (mm)</th>
                 </tr>
             </thead>
             <?php
@@ -39,11 +39,11 @@
             <thead>
                 <tr align="center" class="thead-dark">
                     <th>Site</th>
-                    <th>42,5N (50kg) Bags</th>
-                    <th>Plaster Sand(m³)</th>
-                    <th>Width(m)</th>
-                    <th>Length(m)</th>
-                    <th>Thickness(mm)</th>
+                    <th>42,5N Cement (50kg Bags)</th>
+                    <th>Plaster Sand (m³)</th>
+                    <th>Width (m)</th>
+                    <th>Length (m)</th>
+                    <th>Thickness (mm)</th>
                 </tr>
             </thead>
             <?php
@@ -72,11 +72,11 @@
             <thead>
                 <tr align="center" class="thead-dark">
                     <th>Site</th>
-                    <th>42,5N (50kg) Bags</th>
-                    <th>Sand(m³)</th>
-                    <th>Width(m)</th>
-                    <th>Length(m)</th>
-                    <th>Thickness(mm)</th>
+                    <th>42,5N Cement (50kg Bags)</th>
+                    <th>Sand (m³)</th>
+                    <th>Width (m)</th>
+                    <th>Length (m)</th>
+                    <th>Thickness (mm)</th>
                 </tr>
             </thead>
         <?php

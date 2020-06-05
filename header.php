@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="home.php">Quants</a>
+                    <a class="navbar-brand" href="home.php">Quantities</a>
                 </div>
                 <ul class="navbar-nav">
                     <li class="nav-item"> 

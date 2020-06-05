@@ -68,13 +68,13 @@
                         <table class="table table-striped" align="center" border= "1px" width="100%">
                             <thead >
                                 <tr align="center" class="thead-dark">
-                                    <th>Sitename</th>
-                                    <th>42,5N (50kg) Bags</th>
-                                    <th>Concrete Stone Agregate(m³)</th>
-                                    <th>Sand(m³)</th>
-                                    <th>Width(m)</th>
-                                    <th>Length(m)</th>
-                                    <th>Thickness(mm)</th>
+                                    <th>Site</th>
+                                    <th>42,5N Cement (50kg Bags)</th>
+                                    <th>Concrete Stone Aggregate (m³)</th>
+                                    <th>Sand (m³)</th>
+                                    <th>Width (m)</th>
+                                    <th>Length (m)</th>
+                                    <th>Thickness (mm)</th>
                                 </tr>
                             </thead>
                             <?php
