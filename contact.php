@@ -31,13 +31,16 @@
                             <h2 align="center">Contact Us</h2>
                         </div>
                         <div class="row justify-content-center p-1">
+                            <h6 align="center">Name: Robert Murdoch</h6>
+                        </div>
+                        <div class="row justify-content-center p-1">
                             <h6 align="center">Email: oatsrobert81@gmail.com</h6>
                         </div>
                         <div class="row justify-content-center p-1">
                             <h6 align="center">Phone: +27 79 352 9648</h6>
                         </div>
                         <div class="row justify-content-center p-1">
-                            <h6 align="center">Name: Robert Murdoch</h6>
+                            <h6 align="center"><a href="https://github.com/Mavirk/quantifier/issues" class="col" style="color:#148F77" >Feature requests and bugs</a></h6>
                         </div>
                     </div>
                 </div> 
